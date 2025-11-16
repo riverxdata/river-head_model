@@ -2,10 +2,10 @@ import glob
 import os
 import shutil
 import sys
-
+import pandas as pd
 import numpy as np
 from sklearn import model_selection
-
+from lib.io import sample_directory
 from lib.dataset import dataset as D
 from lib.dataset import metadata as M
 from lib.dataset import sample_set as S
@@ -68,6 +68,17 @@ def dump_k_fold(out_dir, num_fold,
     metadata = M.Metadata(feature_names, label_names)
     sample_set = S.SampleSet(feature_vectors, instance_names, labels)
     _validate(metadata, sample_set)
+
+    # write to csv
+    csv = pd.DataFrame(feature_vectors, index=instance_names, columns=feature_names)
+    
+    # label
+    MAPPED_LABELS={k: v for k, v in sample_directory.DIR_NAMES}
+    key_mapped_labels=["/".join(instance_name.split("/")[1:3]) for instance_name in instance_names]
+    mapped_instance_names = [MAPPED_LABELS.get(x, x) for x in key_mapped_labels]
+    csv["label"]=mapped_instance_names
+
+    csv.to_csv(os.path.join(out_dir, 'full_data.csv'), index=False)
 
     skf = model_selection.StratifiedKFold(num_fold)
     place_holder = np.zeros_like(labels[:, None])

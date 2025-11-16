@@ -1,0 +1,20 @@
+{
+	"$defs": {
+		"input_output_options": {
+			"title": "Input/Output Option",
+			"type": "object",
+			"description": "",
+			"default": "",
+			"required": ["outdir"],
+			"properties": {
+				"outdir": {
+					"type": "string",
+					"default": "output",
+					"format": "directory-path",
+					"fa_icon": "fas fa-folder-open",
+					"description": "Directory path"
+				}
+			}
+		}
+	}
+}
