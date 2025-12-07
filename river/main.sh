@@ -7,9 +7,14 @@ else
 fi
 bash run_preprocess.sh -1 GSE211692_RAW.tar work_dir preprocessed_dir mapping_file.txt
 
-# upload to remote project
-cd ../../
-pwd
-mkdir -p $outdir
-cp analysis/preprocess/work_dir/full_data.csv $outdir
+# merge all data
+# python3 tool/get_all_data.py --work_dir ./work_dir/0 --output all_data.csv
+# aggreate report
+
+
+# # upload to remote project
+# cd ../../
+# pwd
+# mkdir -p $outdir
+# cp analysis/preprocess/work_dir/full_data.csv $outdir
 

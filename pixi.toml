@@ -11,7 +11,7 @@ python = "3.11.*"
 mscorefonts = ">=0.0.1,<0.0.2"
 
 [pypi-dependencies]
-numpy = ">=2.3.4, <3"
+numpy = ">=2.3.5, <3"
 chainer = ">=7.8.1, <8"
 tables = ">=3.10.2, <4"
 scikit-learn = ">=1.7.2, <2"
