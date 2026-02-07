@@ -2,7 +2,7 @@ eval "$(pixi shell-hook)"
 # preprocess
 cd analysis/preprocess
 if [ ! -f GSE211692_RAW.tar ]; then
-    wget https://www.ncbi.nlm.nih.gov/geo/download/\?acc\=GSE211692\&format\=file -O GSE211692_RAW.tar
+    wget -q https://www.ncbi.nlm.nih.gov/geo/download/\?acc\=GSE211692\&format\=file -O GSE211692_RAW.tar
 else
     echo "GSE211692_RAW.tar already exists, skipping download."
 fi
