@@ -1,3 +1,4 @@
+eval "$(pixi shell-hook)"
 # preprocess
 cd analysis/preprocess
 if [ ! -f GSE211692_RAW.tar ]; then
@@ -17,4 +18,4 @@ python tool/get_summary.py
 cd ../../
 pwd
 mkdir -p $outdir
-cp analysis/preprocess/work_dir/full_data.csv $outdir
+cp analysis/preprocess/work_dir/all_data.csv $outdir
