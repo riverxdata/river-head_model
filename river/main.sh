@@ -18,4 +18,4 @@ python tool/get_summary.py
 cd ../../
 pwd
 mkdir -p $outdir
-cp analysis/preprocess/work_dir/all_data.csv $outdir
+cp analysis/preprocess/all_data.csv $outdir
